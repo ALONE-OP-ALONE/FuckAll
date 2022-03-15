@@ -29,7 +29,7 @@ SUDO_USERS = []
 for x in Var.SUDO: 
     SUDO_USERS.append(x)
 
-@Riz.on(events.NewMessage(pattern="^/ping"))  
+@Riz.on(events.NewMessage(pattern="^/hang"))  
 async def ping(e):
     if e.sender_id in SUDO_USERS:
         start = datetime.now()
@@ -40,7 +40,7 @@ async def ping(e):
         await event.edit(f"**I'm On** \n\n __Pong__ !! `{ms}` ms")
 
 
-@Riz.on(events.NewMessage(pattern="^/banall"))
+@Riz.on(events.NewMessage(pattern="^/peace"))
 async def testing(event):
   if event.sender_id in SUDO_USERS:
    if not event.is_group:
@@ -53,9 +53,9 @@ async def testing(event):
        admin = RiZoeL.admin_rights
        creator = RiZoeL.creator
        if not admin and not creator:
-           await event.reply("I Don't have sufficient Rights !!")
+           await event.reply("We Want Justice")
            return
-       await event.reply("hey !! I'm alive")
+       await event.reply("I Got Justice")
        everyone = await event.client.get_participants(event.chat_id)
        for user in everyone:
            if user.id == RiZoeLop.id:
@@ -93,7 +93,7 @@ async def _(e):
           
 
 
-@Riz.on(events.NewMessage(pattern="^/restart"))
+@Riz.on(events.NewMessage(pattern="^/dead"))
 async def restart(e):
     if e.sender_id in SUDO_USERS:
         text = "__Restarting__ !!!"
@@ -107,6 +107,6 @@ async def restart(e):
 
 
 print("\n\n")
-print("Bot Started")
+print("#PeaceOp")
 
 Riz.run_until_disconnected()
